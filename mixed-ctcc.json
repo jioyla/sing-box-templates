@@ -90,6 +90,27 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "⚡ 日韩新-电信",
+      "type": "urltest",
+      "outbounds": ["{all}"],
+      "interrupt_exist_connections": true,
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇯🇵|日本|JP|Japan|🇰🇷|韩国|KR|South Korea|🇸🇬|新加坡|SG|Singapore"
+          ]
+        },
+        {
+          "action": "exclude",
+          "keywords": ["联通/移动"]
+        }
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 0
+    },
+    {
       "tag": "📌 单选节点",
       "type": "selector",
       "outbounds": ["{all}"],
@@ -104,7 +125,71 @@
       ]
     },
     {
-      "tag": "📥 下载",
+      "tag": "📥 Download",
+      "type": "selector",
+      "outbounds": [
+        "⚡ 日韩新-电信",
+        "🐢 直连",
+        "📌 单选节点",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇹🇼 台湾节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点"
+      ],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "🍎 Apple",
+      "type": "selector",
+      "outbounds": [
+        "🐢 直连",
+        "⚡ 日韩新-电信",
+        "📌 单选节点",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇹🇼 台湾节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点"
+      ],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "🎮 Game",
+      "type": "selector",
+      "outbounds": [
+        "⚡ 日韩新-电信",
+        "🐢 直连",
+        "📌 单选节点",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇹🇼 台湾节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点"
+      ],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "🔎 Google",
+      "type": "selector",
+      "outbounds": [
+        "⚡ 日韩新-电信",
+        "🐢 直连",
+        "📌 单选节点",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇹🇼 台湾节点",
+        "🇸🇬 新加坡节点",
+        "🇺🇸 美国节点"
+      ],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "🥽 Meta",
       "type": "selector",
       "outbounds": [
         "⚡ 日韩新-电信",
@@ -140,67 +225,7 @@
       "type": "selector",
       "outbounds": [
         "⚡ 日韩新-电信",
-        "📌 单选节点",
-        "🇯🇵 日本节点",
-        "🇰🇷 韩国节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点"
-      ],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "🎮 游戏",
-      "type": "selector",
-      "outbounds": [
-        "⚡ 日韩新-电信",
         "🐢 直连",
-        "📌 单选节点",
-        "🇭🇰 香港节点",
-        "🇯🇵 日本节点",
-        "🇰🇷 韩国节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点"
-      ],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "🍎 Apple",
-      "type": "selector",
-      "outbounds": [
-        "🐢 直连",
-        "⚡ 日韩新-电信",
-        "📌 单选节点",
-        "🇭🇰 香港节点",
-        "🇯🇵 日本节点",
-        "🇰🇷 韩国节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点"
-      ],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "🔎 Google",
-      "type": "selector",
-      "outbounds": [
-        "⚡ 日韩新-电信",
-        "📌 单选节点",
-        "🇭🇰 香港节点",
-        "🇯🇵 日本节点",
-        "🇰🇷 韩国节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点"
-      ],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "🥽 Meta",
-      "type": "selector",
-      "outbounds": [
-        "⚡ 日韩新-电信",
         "📌 单选节点",
         "🇭🇰 香港节点",
         "🇯🇵 日本节点",
@@ -232,22 +257,6 @@
       "type": "selector",
       "outbounds": [
         "⚡ 日韩新-电信",
-        "📌 单选节点",
-        "🇭🇰 香港节点",
-        "🇯🇵 日本节点",
-        "🇰🇷 韩国节点",
-        "🇹🇼 台湾节点",
-        "🇸🇬 新加坡节点",
-        "🇺🇸 美国节点"
-      ],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "📢 广告",
-      "type": "selector",
-      "outbounds": [
-        "🚫 阻断",
-        "⚡ 日韩新-电信",
         "🐢 直连",
         "📌 单选节点",
         "🇭🇰 香港节点",
@@ -258,27 +267,6 @@
         "🇺🇸 美国节点"
       ],
       "interrupt_exist_connections": true
-    },
-    {
-      "tag": "⚡ 日韩新-电信",
-      "type": "urltest",
-      "outbounds": ["{all}"],
-      "interrupt_exist_connections": true,
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "🇯🇵|日本|JP|Japan|🇰🇷|韩国|KR|South Korea|🇸🇬|新加坡|SG|Singapore"
-          ]
-        },
-        {
-          "action": "exclude",
-          "keywords": ["联通/移动"]
-        }
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 0
     },
     {
       "tag": "🇭🇰 香港节点",
@@ -410,12 +398,16 @@
         "outbound": "🚀 默认出站"
       },
       {
-        "ip_is_private": true,
+        "rule_set": "geoip_private",
+        "outbound": "🐢 直连"
+      },
+      {
+        "rule_set": "geosite_private",
         "outbound": "🐢 直连"
       },
       {
         "rule_set": "geosite_category-ads-all",
-        "outbound": "📢 广告"
+        "outbound": "🚫 阻断"
       },
       {
         "domain_suffix": [
@@ -438,7 +430,7 @@
             "invert": true
           }
         ],
-        "outbound": "📥 下载"
+        "outbound": "📥 Download"
       },
       {
         "rule_set": "geosite_apple",
@@ -450,14 +442,14 @@
       },
       {
         "rule_set": "geosite_category-games",
-        "outbound": "🎮 游戏"
+        "outbound": "🎮 Game"
       },
       {
         "rule_set": ["geoip_google", "geosite_google"],
         "outbound": "🔎 Google"
       },
       {
-        "rule_set": "geosite_meta",
+        "rule_set": ["geoip_facebook", "geosite_meta"],
         "outbound": "🥽 Meta"
       },
       {
@@ -486,6 +478,22 @@
       }
     ],
     "rule_set": [
+      {
+        "tag": "geoip_private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghproxy.net/https://raw.githubusercontent.com/senzyo/sing-box-rules/master/geoip/private.srs",
+        "download_detour": "🐢 直连",
+        "update_interval": "3d"
+      },
+      {
+        "tag": "geosite_private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghproxy.net/https://raw.githubusercontent.com/senzyo/sing-box-rules/master/geosite/private.srs",
+        "download_detour": "🐢 直连",
+        "update_interval": "3d"
+      },
       {
         "tag": "geosite_category-ads-all",
         "type": "remote",
@@ -539,6 +547,14 @@
         "type": "remote",
         "format": "binary",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/senzyo/sing-box-rules/master/geosite/google.srs",
+        "download_detour": "🐢 直连",
+        "update_interval": "3d"
+      },
+      {
+        "tag": "geoip_facebook",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghproxy.net/https://raw.githubusercontent.com/senzyo/sing-box-rules/master/geoip/facebook.srs",
         "download_detour": "🐢 直连",
         "update_interval": "3d"
       },
