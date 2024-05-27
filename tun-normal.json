@@ -23,31 +23,29 @@
       {
         "tag": "国际DNS",
         "address": "https://8.8.8.8/dns-query",
-        "strategy": "prefer_ipv4",
         "detour": "🚀 默认出站"
       },
       {
         "tag": "国内DNS",
         "address": "https://223.5.5.5/dns-query",
-        "strategy": "prefer_ipv4",
         "detour": "🐢 直连"
       },
       {
         "tag": "阻断DNS",
-        "address": "rcode://success"
+        "address": "rcode://refused"
       }
     ],
     "rules": [
-      {
-        "rule_set": "geosite_category-ads-all",
-        "server": "阻断DNS"
-      },
       {
         "outbound": "any",
         "server": "国内DNS"
       },
       {
-        "rule_set": "geosite_cn",
+        "rule_set": "geosite_category-ads-all",
+        "server": "阻断DNS"
+      },
+      {
+        "rule_set": ["geoip_cn", "geosite_cn"],
         "server": "国内DNS"
       },
       {
@@ -62,7 +60,11 @@
         "rule_set": "geosite_geolocation-!cn",
         "server": "国际DNS"
       }
-    ]
+    ],
+    "strategy": "prefer_ipv4",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": true
   },
   "inbounds": [
     {
@@ -411,7 +413,7 @@
         "outbound": "🚀 默认出站"
       },
       {
-        "rule_set": "geoip_private",
+        "ip_is_private": true,
         "outbound": "🐢 直连"
       },
       {
@@ -491,14 +493,6 @@
       }
     ],
     "rule_set": [
-      {
-        "tag": "geoip_private",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://ghproxy.net/https://raw.githubusercontent.com/senzyo/sing-box-rules/master/geoip/private.srs",
-        "download_detour": "🐢 直连",
-        "update_interval": "3d"
-      },
       {
         "tag": "geosite_private",
         "type": "remote",
