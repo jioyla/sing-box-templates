@@ -130,7 +130,7 @@
         {
           "action": "exclude",
           "keywords": [
-            "剩余|流量|有效|时间|到期|expire|地址|网址|官网|自动|最优|最快"
+            "剩余|流量|有效|时间|到期|expire|Expire|traffic|Traffic|地址|网址|官网|自动|最优|最快"
           ]
         }
       ]
