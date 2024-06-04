@@ -137,14 +137,12 @@ DNS 协议只用 `DNS over TLS` 或 `DNS over HTTPS`, 更多 DNS 协议与格式
       "tag": "国际DNS",
       "address": "https://8.8.8.8/dns-query",
       // "address": "tls://8.8.8.8",
-      "strategy": "prefer_ipv4",
       "detour": "🚀 默认出站"
     },
     {
       "tag": "国内DNS",
       "address": "https://223.5.5.5/dns-query",
       // "address": "tls://223.5.5.5",
-      "strategy": "prefer_ipv4",
       "detour": "🐢 直连"
     },
 ...
