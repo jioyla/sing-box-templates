@@ -21,7 +21,7 @@
   "dns": {
     "servers": [
       {
-        "tag": "国际DNS",
+        "tag": "国外DNS",
         "address": "https://8.8.8.8/dns-query",
         "detour": "🚀 默认出站"
       },
@@ -42,7 +42,7 @@
       },
       {
         "rule_set": "geosite_geolocation-!cn",
-        "server": "国际DNS"
+        "server": "国外DNS"
       },
       {
         "clash_mode": "direct",
@@ -50,7 +50,7 @@
       },
       {
         "clash_mode": "global",
-        "server": "国际DNS"
+        "server": "国外DNS"
       }
     ],
     "strategy": "ipv4_only",
@@ -129,7 +129,7 @@
         {
           "action": "exclude",
           "keywords": [
-            "剩余|流量|有效|时间|到期|expire|Expire|traffic|Traffic|地址|网址|官网|自动|最优|最快"
+            "剩余|流量|raffic|有效|时间|到期|xpire|地址|网址|官网|自动|最优|最快"
           ]
         }
       ]

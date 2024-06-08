@@ -11,19 +11,16 @@ if [ ! -f "$template" ]; then
   exit 1
 fi
 
+# 更多 DNS 参考: https://senzyo.net/2022-22/
 dns_global_list=(
   https://1.1.1.1/dns-query
   https://1.0.0.1/dns-query
   https://8.8.8.8/dns-query
   https://8.8.4.4/dns-query
-  https://9.9.9.9/dns-query
-  https://149.112.112.112/dns-query
   tls://1.1.1.1
   tls://1.0.0.1
   tls://8.8.8.8
   tls://8.8.4.4
-  tls://9.9.9.9
-  tls://149.112.112.112
 )
 cdn_snippet_list=(
   https://fastly.jsdelivr.net/gh/senzyo/sing-box-rules@master/
@@ -53,7 +50,7 @@ for dns_global in "${dns_global_list[@]}"; do
         final_output_dir=$output_dir/$dns_protocol/$dns_server/$cdn_server
         mkdir -p $final_output_dir
         jq --arg dns_china "$dns_china" --arg dns_global "$dns_global" --arg cdn_snippet "$cdn_snippet" \
-          '.dns.servers[] |= if .tag=="国际DNS" then .address = $dns_global elif .tag=="国内DNS" then .address = $dns_china else . end | .route.rule_set[].url |= sub("https.*?master\/"; $cdn_snippet)' $template >$final_output_dir/config.json
+          '.dns.servers[] |= if .tag=="国外DNS" then .address = $dns_global elif .tag=="国内DNS" then .address = $dns_china else . end | .route.rule_set[].url |= sub("https.*?master\/"; $cdn_snippet)' $template >$final_output_dir/config.json
       else
         echo "Not matched."
       fi
