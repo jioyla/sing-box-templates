@@ -20,7 +20,6 @@
 - [4. 注意事项](#4-注意事项)
   - [4.1 下载进程分流](#41-下载进程分流)
   - [4.2 TUN 模式的问题](#42-tun-模式的问题)
-  - [4.3 三网线路分流](#43-三网线路分流)
 
 ## 1. 使用示例
 
@@ -35,7 +34,11 @@ url_dl="$url_gene/config/$url_sub&ua=clashmeta&emoji=1&file=$url_tpl"
 curl -L -o config.json "$url_dl"
 ```
 
-总之拼接出自己的 `$url_dl` 即可。更多参数信息, 阅读 https://github.com/Toperlock/sing-box-subscribe/blob/main/instructions/README.md
+总之拼接出自己的 `$url_dl` 即可。
+
+脚本示例, 阅读 [sing-box on Linux](https://senzyo.net/2024-2/#日常使用) 和 [sing-box on Windows](https://senzyo.net/2024-3/#日常使用)。
+
+[Toperlock/sing-box-subscribe](https://github.com/Toperlock/sing-box-subscribe) 的更多参数信息, 阅读其 [README.md](https://github.com/Toperlock/sing-box-subscribe/blob/main/instructions/README.md)。
 
 ## 2. 分类
 
@@ -84,9 +87,10 @@ curl -L -o config.json "$url_dl"
   {
     "type": "tun",
     "inet4_address": "172.19.0.1/30",
-    "inet6_address": "fdfe:dcba:9876::1/126",
+    "gso": false,
     "auto_route": true,
     "strict_route": true,
+    "endpoint_independent_nat": false,
     "stack": "mixed",
     "exclude_package": ["com.android.captiveportallogin"],
     "platform": {
@@ -96,13 +100,15 @@ curl -L -o config.json "$url_dl"
         "server_port": 7890
       }
     },
-    "sniff": true
+    "sniff": true,
+    "sniff_override_destination": false
   },
   {
     "type": "mixed",
     "listen": "127.0.0.1",
     "listen_port": 7890,
-    "sniff": true
+    "sniff": true,
+    "sniff_override_destination": false
   }
 ],
 ```
@@ -115,7 +121,8 @@ curl -L -o config.json "$url_dl"
     "type": "mixed",
     "listen": "127.0.0.1",
     "listen_port": 7890,
-    "sniff": true
+    "sniff": true,
+    "sniff_override_destination": false
   }
 ],
 ```
@@ -126,8 +133,8 @@ DNS 协议只用 `DNS over TLS` 或 `DNS over HTTPS`, 更多 DNS 协议与格式
 
 ### 2.3 DNS 服务商
 
-所有文件的 `国内DNS` 都使用 `223.5.5.5`; 
-`国外DNS` 使用 `1.1.1.1`, `1.0.0.1`, `8.8.8.8`, `8.8.4.4` 中的一个。
+所有模板的 `国内DNS` 都使用 `阿里DNS`; 
+`国外DNS` 使用 `AdGuard DNS`, `Cisco OpenDNS`, `Cloudflare DNS`, `Google DNS` 中的一个。
 更多 DNS 服务商参考 [公共DNS](https://senzyo.net/2022-22/)。
 
 ```json
@@ -135,14 +142,12 @@ DNS 协议只用 `DNS over TLS` 或 `DNS over HTTPS`, 更多 DNS 协议与格式
   "servers": [
     {
       "tag": "国外DNS",
-      "address": "https://8.8.8.8/dns-query",
-      // "address": "tls://8.8.8.8",
-      "detour": "🚀 默认出站"
+      "address": "tls://8.8.8.8",
+      "detour": "🕸 兜底"
     },
     {
       "tag": "国内DNS",
-      "address": "https://223.5.5.5/dns-query",
-      // "address": "tls://223.5.5.5",
+      "address": "tls://223.5.5.5",
       "detour": "🐢 直连"
     },
 ...
@@ -235,7 +240,7 @@ https://raw.githubusercontent.com/senzyo/sing-box-template/normal/tun/doh/8.8.8.
 
 ### 4.1 下载进程分流
 
-由于无法准确分流 BitTorrent 流量, 干脆匹配 [下载软件的进程](https://raw.githubusercontent.com/senzyo/sing-box-rules/master/download-process.json) 来一刀切。使用 Bittorrent 方式下载时, 手动切换 `📥 下载` 分组的策略, 改用 `🐢 直连`。
+由于暂时无法准确分流 BitTorrent 流量, 干脆匹配 [下载软件的进程](https://raw.githubusercontent.com/senzyo/sing-box-rules/master/download-process.json) 来一刀切。使用 Bittorrent 方式下载时, 手动切换 `📥 下载` 分组的策略, 改用 `🐢 直连`。
 
 ### 4.2 TUN 模式的问题
 
@@ -256,39 +261,3 @@ https://raw.githubusercontent.com/senzyo/sing-box-template/normal/tun/doh/8.8.8.
 如果关闭了严格路由, Linux 平台在 TUN 模式下还是无法使用 IPv6 进行 SSH 访问, 根据 [issue#458](https://github.com/SagerNet/sing-box/issues/458) 得知:
 
 > 由于技术限制, 在 Linux 平台中 tun 的自动路由会阻止 IPv6 入站连接, 您可以选择手动配置路由。
-
-### 4.3 三网线路分流
-
-我使用的机场对节点这样命名: `XXX-电信/联通`, `XXX-联通/移动`, `XXX-电信/移动`, `XXX-全网优化`。
-
-所以我对节点这样过滤: 
-
-```json
-"outbounds": [
-...
-  {
-    "tag": "⚡ 日韩新-移动",
-    "type": "urltest",
-    "outbounds": ["{all}"],
-    "interrupt_exist_connections": true,
-    "filter": [
-      {
-        "action": "include",
-        "keywords": [
-          "🇯🇵|日本|JP|Japan|🇰🇷|韩国|KR|South Korea|🇸🇬|新加坡|SG|Singapore"
-        ]
-      },
-      {
-        "action": "exclude",
-        "keywords": ["电信/联通"]
-      }
-    ],
-    "url": "https://www.gstatic.com/generate_204",
-    "interval": "10m",
-    "tolerance": 0
-  },
-...
-],
-```
-
-如果你的节点命名规则与此不同, 请只使用 `normal` 分支的模板, 不要使用其他模板。

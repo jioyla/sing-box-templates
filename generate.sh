@@ -13,12 +13,24 @@ fi
 
 # 更多 DNS 参考: https://senzyo.net/2022-22/
 dns_global_list=(
+  # AdGuard DNS
+  https://94.140.14.140/dns-query
+  https://94.140.14.141/dns-query
+  tls://94.140.14.140
+  tls://94.140.14.141
+  # Cisco OpenDNS
+  https://208.67.220.220/dns-query
+  https://208.67.222.222/dns-query
+  tls://208.67.220.220
+  tls://208.67.222.222
+  # Cloudflare DNS
   https://1.1.1.1/dns-query
   https://1.0.0.1/dns-query
-  https://8.8.8.8/dns-query
-  https://8.8.4.4/dns-query
   tls://1.1.1.1
   tls://1.0.0.1
+  # Google DNS
+  https://8.8.8.8/dns-query
+  https://8.8.4.4/dns-query
   tls://8.8.8.8
   tls://8.8.4.4
 )
