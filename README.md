@@ -26,19 +26,19 @@
 ```bash
 #!/bin/bash
 
-url_gene="https://example.com"  # 生成配置的后端地址
-url_sub="https://example.com"   # 来自机场的订阅链接
-url_tpl="https://raw.githubusercontent.com/senzyo/sing-box-template/normal/tun/doh/8.8.8.8/ghproxy.net/config.json"  # 配置所用模板的地址
+url_gene="https://a.com"  # 生成配置的后端地址
+url_sub="https://b.com"   # 来自机场的订阅链接
+url_tpl="https://raw.githubusercontent.com/senzyo/sing-box-template/normal/tun/dot/8.8.8.8/ghproxy.net/config.json"  # 配置所用模板的地址
 url_dl="$url_gene/config/$url_sub&ua=clashmeta&emoji=1&file=$url_tpl"
-
-curl -L -o config.json "$url_dl"
+echo $url_dl
+# curl -L -o config.json "$url_dl"
 ```
 
-总之拼接出自己的 `$url_dl` 即可。
+在 Android 或 Apple 设备的 sing-box 图形客户端中添加这个最终的 URL 作为订阅链接。
 
-脚本示例, 阅读 [sing-box on Linux](https://senzyo.net/2024-2/#日常使用) 和 [sing-box on Windows](https://senzyo.net/2024-3/#日常使用)。
+对于 Linux 和 Windows, 阅读 [sing-box on Linux](https://senzyo.net/2024-2/#日常使用) 和 [sing-box on Windows](https://senzyo.net/2024-3/#日常使用)。
 
-[Toperlock/sing-box-subscribe](https://github.com/Toperlock/sing-box-subscribe) 的更多参数信息, 阅读其 [README.md](https://github.com/Toperlock/sing-box-subscribe/blob/main/instructions/README.md)。
+至于 [Toperlock/sing-box-subscribe](https://github.com/Toperlock/sing-box-subscribe) 的更多参数信息, 阅读其 [README.md](https://github.com/Toperlock/sing-box-subscribe/blob/main/instructions/README.md)。
 
 ## 2. 分类
 
