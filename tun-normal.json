@@ -114,7 +114,6 @@
       "tag": "🌏 日韩台新",
       "type": "urltest",
       "outbounds": ["{all}"],
-      "interrupt_exist_connections": true,
       "filter": [
         {
           "action": "include",
@@ -124,14 +123,14 @@
         }
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 0
+      "interval": "5m",
+      "tolerance": 0,
+      "interrupt_exist_connections": true
     },
     {
       "tag": "📌 单选节点",
       "type": "selector",
       "outbounds": ["{all}"],
-      "interrupt_exist_connections": true,
       "filter": [
         {
           "action": "exclude",
@@ -139,7 +138,8 @@
             "剩余|流量|raffic|有效|时间|到期|xpire|地址|网址|官网|自动|最优|最快"
           ]
         }
-      ]
+      ],
+      "interrupt_exist_connections": true
     },
     {
       "tag": "📢 广告",
@@ -306,7 +306,6 @@
       "tag": "🇭🇰 香港节点",
       "type": "urltest",
       "outbounds": ["{all}"],
-      "interrupt_exist_connections": true,
       "filter": [
         {
           "action": "include",
@@ -314,14 +313,14 @@
         }
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 0
+      "interval": "7m",
+      "tolerance": 0,
+      "interrupt_exist_connections": true
     },
     {
       "tag": "🇯🇵 日本节点",
       "type": "urltest",
       "outbounds": ["{all}"],
-      "interrupt_exist_connections": true,
       "filter": [
         {
           "action": "include",
@@ -329,14 +328,14 @@
         }
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 0
+      "interval": "7m",
+      "tolerance": 0,
+      "interrupt_exist_connections": true
     },
     {
       "tag": "🇰🇷 韩国节点",
       "type": "urltest",
       "outbounds": ["{all}"],
-      "interrupt_exist_connections": true,
       "filter": [
         {
           "action": "include",
@@ -344,14 +343,14 @@
         }
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 0
+      "interval": "7m",
+      "tolerance": 0,
+      "interrupt_exist_connections": true
     },
     {
       "tag": "🇹🇼 台湾节点",
       "type": "urltest",
       "outbounds": ["{all}"],
-      "interrupt_exist_connections": true,
       "filter": [
         {
           "action": "include",
@@ -359,14 +358,14 @@
         }
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 0
+      "interval": "7m",
+      "tolerance": 0,
+      "interrupt_exist_connections": true
     },
     {
       "tag": "🇸🇬 新加坡节点",
       "type": "urltest",
       "outbounds": ["{all}"],
-      "interrupt_exist_connections": true,
       "filter": [
         {
           "action": "include",
@@ -374,14 +373,14 @@
         }
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 0
+      "interval": "7m",
+      "tolerance": 0,
+      "interrupt_exist_connections": true
     },
     {
       "tag": "🇺🇸 美国节点",
       "type": "urltest",
       "outbounds": ["{all}"],
-      "interrupt_exist_connections": true,
       "filter": [
         {
           "action": "include",
@@ -389,8 +388,9 @@
         }
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 0
+      "interval": "7m",
+      "tolerance": 0,
+      "interrupt_exist_connections": true
     },
     {
       "tag": "🐢 直连",
