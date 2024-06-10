@@ -32,17 +32,12 @@
     ],
     "rules": [
       {
-        "clash_mode": "direct",
+        "outbound": "any",
         "server": "国内DNS",
         "rewrite_ttl": 1800
       },
       {
-        "clash_mode": "global",
-        "server": "国外DNS",
-        "rewrite_ttl": 1800
-      },
-      {
-        "outbound": "any",
+        "rule_set": "geosite_cn",
         "server": "国内DNS",
         "rewrite_ttl": 1800
       },
@@ -53,8 +48,13 @@
         "rewrite_ttl": 1800
       },
       {
-        "rule_set": "geosite_cn",
+        "clash_mode": "direct",
         "server": "国内DNS",
+        "rewrite_ttl": 1800
+      },
+      {
+        "clash_mode": "global",
+        "server": "国外DNS",
         "rewrite_ttl": 1800
       }
     ],
@@ -62,7 +62,7 @@
     "strategy": "ipv4_only",
     "disable_cache": false,
     "disable_expire": false,
-    "independent_cache": false,
+    "independent_cache": true,
     "reverse_mapping": false
   },
   "inbounds": [
@@ -441,7 +441,8 @@
             "rule_set": "download-process"
           },
           {
-            "rule_set": "geosite_geolocation-!cn"
+            "rule_set": ["geoip_cn", "geosite_cn"],
+            "invert": true
           }
         ],
         "outbound": "📥 Download"
