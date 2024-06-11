@@ -1,5 +1,95 @@
 [
   {
+    "name": "剩余流量：82.55 GB",
+    "type": "vmess",
+    "server": "yx1.gyyun.top",
+    "port": 8880,
+    "uuid": "9114738a-9582-4ad8-b94c-8067e206a124",
+    "alterId": 0,
+    "cipher": "auto",
+    "udp": true,
+    "network": "ws",
+    "ws-opts": {
+      "path": "/?ed=2048",
+      "headers": {
+        "Host": "opmg1.gyyun.top"
+      }
+    },
+    "subName": "cloud.gyyun.top"
+  },
+  {
+    "name": "距离下次重置剩余：19 天",
+    "type": "vmess",
+    "server": "yx1.gyyun.top",
+    "port": 8880,
+    "uuid": "9114738a-9582-4ad8-b94c-8067e206a124",
+    "alterId": 0,
+    "cipher": "auto",
+    "udp": true,
+    "network": "ws",
+    "ws-opts": {
+      "path": "/?ed=2048",
+      "headers": {
+        "Host": "opmg1.gyyun.top"
+      }
+    },
+    "subName": "cloud.gyyun.top"
+  },
+  {
+    "name": "套餐到期：2024-06-26",
+    "type": "vmess",
+    "server": "yx1.gyyun.top",
+    "port": 8880,
+    "uuid": "9114738a-9582-4ad8-b94c-8067e206a124",
+    "alterId": 0,
+    "cipher": "auto",
+    "udp": true,
+    "network": "ws",
+    "ws-opts": {
+      "path": "/?ed=2048",
+      "headers": {
+        "Host": "opmg1.gyyun.top"
+      }
+    },
+    "subName": "cloud.gyyun.top"
+  },
+  {
+    "name": "官网：gyyun.top",
+    "type": "vmess",
+    "server": "yx1.gyyun.top",
+    "port": 8880,
+    "uuid": "9114738a-9582-4ad8-b94c-8067e206a124",
+    "alterId": 0,
+    "cipher": "auto",
+    "udp": true,
+    "network": "ws",
+    "ws-opts": {
+      "path": "/?ed=2048",
+      "headers": {
+        "Host": "opmg1.gyyun.top"
+      }
+    },
+    "subName": "cloud.gyyun.top"
+  },
+  {
+    "name": "邀请循环70返利",
+    "type": "vmess",
+    "server": "yx2.gyyun.top",
+    "port": 8880,
+    "uuid": "9114738a-9582-4ad8-b94c-8067e206a124",
+    "alterId": 0,
+    "cipher": "auto",
+    "udp": true,
+    "network": "ws",
+    "ws-opts": {
+      "path": "/?ed=2048",
+      "headers": {
+        "Host": "opmg1.gyyun.top"
+      }
+    },
+    "subName": "cloud.gyyun.top"
+  },
+  {
     "name": "l日本-1",
     "type": "vmess",
     "server": "yx1.gyyun.top",
